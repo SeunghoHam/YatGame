@@ -25,22 +25,9 @@ public class YG : ModuleRules
 
 		PublicIncludePaths.AddRange(new string[] {
 			"YG",
-			"YG/Variant_Platforming",
-			"YG/Variant_Platforming/Animation",
-			"YG/Variant_Combat",
-			"YG/Variant_Combat/AI",
-			"YG/Variant_Combat/Animation",
-			"YG/Variant_Combat/Gameplay",
-			"YG/Variant_Combat/Interfaces",
-			"YG/Variant_Combat/UI",
-			"YG/Variant_SideScrolling",
-			"YG/Variant_SideScrolling/AI",
-			"YG/Variant_SideScrolling/Gameplay",
-			"YG/Variant_SideScrolling/Interfaces",
-			"YG/Variant_SideScrolling/UI",
-			
-			"YG/Widgtes",
-			"YG/Widgtes/Panel",
+			"YG/Widgtes/Game",
+			"YG/Widgtes/Game/Panel",
+			//"YG/Widgtes",
 			"YG/SubSystems",
 			"YG/DataAssets"
 		});

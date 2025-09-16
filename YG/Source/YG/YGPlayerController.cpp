@@ -27,10 +27,10 @@ void AYGPlayerController::BeginPlay()
 		} else {
 
 			UE_LOG(LogYG, Error, TEXT("Could not spawn mobile controls widget."));
-
 		}
 
 	}
+	InputTypeSetting(true);
 }
 
 void AYGPlayerController::SetupInputComponent()
@@ -57,5 +57,31 @@ void AYGPlayerController::SetupInputComponent()
 				}
 			}
 		}
+	}
+}
+
+void AYGPlayerController::InputTypeSetting(bool MouseEnable)
+{
+	if (MouseEnable)
+	{
+		FInputModeUIOnly InputMode;
+		SetInputMode(InputMode);
+		SetShowMouseCursor(true);
+		bEnableClickEvents=  true;
+		bEnableMouseOverEvents = true;
+
+		// 게임 입력 차단
+		SetIgnoreLookInput(true);
+		SetIgnoreMoveInput(true);
+	}
+	else
+	{
+		FInputModeGameOnly InputMode;
+		SetInputMode(InputMode);
+		SetShowMouseCursor(false);
+		bEnableClickEvents =false;
+		bEnableMouseOverEvents = false;
+		SetIgnoreLookInput(false);
+		SetIgnoreMoveInput(false);
 	}
 }

@@ -18,18 +18,17 @@ public class YG : ModuleRules
 			"StateTreeModule",
 			"GameplayStateTreeModule",
 			"UMG",
-			"Slate"
+			"Slate", "SlateCore"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { });
 
 		PublicIncludePaths.AddRange(new string[] {
 			"YG",
-			"YG/Widgtes/Game",
-			"YG/Widgtes/Game/Panel",
-			//"YG/Widgtes",
+			"YG/Widgets/Game",
 			"YG/SubSystems",
-			"YG/DataAssets"
+			"YG/DataAssets",
+			"YG/Character",
 		});
 
 		// Uncomment if you are using Slate UI

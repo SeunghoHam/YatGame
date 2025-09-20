@@ -7,7 +7,6 @@
 #include "YG/SubSystems/Save/HeroineSaveGame.h"
 
 static constexpr int32 kCurrentSaveVersion = 1; // SaveVersion 에서 사용
-
 void UHeroineSystem::InitFromData(const TArray<UGirlsData*>& Datas)
 {
 	for (auto* D : Datas)
@@ -17,21 +16,23 @@ void UHeroineSystem::InitFromData(const TArray<UGirlsData*>& Datas)
 		for (const TPair<FName, FHeroineStatic>& Pair : D->HeroineDatas)
 		{
 			const FName Id = Pair.Key;
-			const FHeroineStatic& Static = Pair.Value;
+			const FHeroineStatic& heroine_static = Pair.Value;
 
 			FHeroineRuntime& R = Runtime.FindOrAdd(Id);
-			R.HeroineId = Id;
+			R.HeroineId = heroine_static.HeroineId;
+			R.HeroineDisplayName = heroine_static.DisplayName;
+			R.HeroineTexture = heroine_static.HeroineTexture;
 
+			
 			// 이미 로드 과정에서 채워졌으면 덮어쓰기 X
 			if (R.Stats.Num() ==0)
 			{
-				R.Stats = Static.DefaultStats;
+				R.Stats = heroine_static.DefaultStats;
 			}
-
 			// 기본 플래그도 없을때만 채움
-			if (R.Flags.Num() == 0 && Static.DefaultFlags.Num()> 0)
+			if (R.Flags.Num() == 0 && heroine_static.DefaultFlags.Num()> 0)
 			{
-				R.Flags = Static.DefaultFlags;
+				R.Flags = heroine_static.DefaultFlags;
 			}
 		}
 	}

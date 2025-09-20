@@ -16,9 +16,8 @@ UCLASS()
 class YG_API UPanelBase : public UUserWidget
 {
 	GENERATED_BODY()
-protected:
-		virtual void NativeConstruct() override;
 public:
+	
 	//DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPanelExitRequest, EPanelType, PanelType);
 	//UPROPERTY(EditAnywhere, meta=(BindWidget))
 	//UButton* Btn_BackToMain;

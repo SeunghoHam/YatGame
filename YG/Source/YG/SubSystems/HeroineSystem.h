@@ -14,7 +14,6 @@
  */
 
 
-
 USTRUCT(BlueprintType)
 struct FHeroineRuntime
 {
@@ -24,14 +23,26 @@ struct FHeroineRuntime
 	FName HeroineId;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TMap<FName, int32> Stats;  // 진행 중 변하는 수치
+	FText HeroineDisplayName;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite , Category=Heroine)
+	TObjectPtr<UTexture2D> HeroineTexture;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Heroine)
+	uint8 Friendly =0; // 친밀도. 용사 - 플레이어의 관계
+	// 용사가 플레이어의 선택에 거부하지 않게 됨
+	
+	// 상승 : 이벤트, 의뢰 성공
+	// 하락 : 먼가 잘못된 선택을 했을 때, 의뢰 실패
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Heroine)
+	uint8 Relationship =0; // 우정도. 용사 - 플레이어의 신뢰
+		
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TMap<FName, int32> Stats;  // 진행 중 변하는 수치
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TSet<FName> Flags;         // 일회성/분기 플래그
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnStatChanged, FName, HeroineId, FName, StatName);
-
 UCLASS()
 class YG_API UHeroineSystem : public UGameInstanceSubsystem
 {

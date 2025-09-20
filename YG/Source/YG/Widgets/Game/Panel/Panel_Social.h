@@ -12,6 +12,11 @@
 UCLASS()
 class YG_API UPanel_Social : public UPanelBase
 {
+
+	// Social Screen Action
+
+	// 1. 높은사람들과 대화
+	
 	GENERATED_BODY()
 	
 };

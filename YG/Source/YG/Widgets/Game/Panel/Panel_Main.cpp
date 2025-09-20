@@ -2,9 +2,15 @@
 
 
 #include "Widgets/Game/Panel/Panel_Main.h"
+#include "UObject/ConstructorHelpers.h"
 
-void UPanel_Main::OnClickExitButton()
+#include "YG/Widgets/Game/Panel/Object/HeroineMainWidget.h"
+
+
+
+/*
+static ConstructorHelpers::FClassFinder<UHeroineMainWidget> HeroineWBPClass(TEXT("/Game/Widgets/UI/Panel/Objects/WBP_HeroineMainObject.WBP_HeroineMainObject_C"));
+if (HeroineWBPClass.Succeeded())
 {
-	Super::OnClickExitButton();
-	// 그모냐 뒤로가기
-}
+    HeroineWidgetClass = HeroineWBPClass.Class;
+}*/
